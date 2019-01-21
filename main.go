@@ -1,16 +1,12 @@
 package main
 
-import (
-	"strconv"
-
-	"golang.org/x/tour/reader"
-)
+import "golang.org/x/tour/reader"
 
 type MyReader struct{}
 
-func (v MyReader) Read([]byte) (int, error) {
-	a, _ := strconv.Atoi("A")
-	return a, nil
+func (r MyReader) Read(b []byte) (int, error) {
+	b[0] = 'A'
+	return 1, nil
 }
 
 func main() {
